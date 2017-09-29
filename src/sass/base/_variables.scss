@@ -9,7 +9,17 @@ $medium:   960px;
 $large:    1200px;
 $x-large:  1440px;
 
-// Breakpoint declaration mixin
+/**
+ * Breakpoint mixin
+ * Usage example:
+ *
+ * .element {
+ *   @include break($medium) {
+ *     width: 50%;}
+ *   }
+ * }
+ *
+ */
 
 @mixin break($break) {
   @media only screen and (min-width: #{$break}) {
@@ -26,15 +36,12 @@ $white:     #f6f6f6;
 $black:     #222222;
 $gray:      #dddddd;
 $darkgray:  #555555;
-$seagreen:  #70e5cb;
-$darkbrown: #462e14;
-$parchment: #faf2e7;
 
 // Color Priorities
-$primary:          $darkbrown;
-$primaryLight:     lighten($darkbrown, 25%);
-$primaryLighter:   lighten($primaryLight,20%);
-$secondary:        $seagreen;
+$primary:          $darkgray;
+$primaryLight:     lighten($primary,25%);
+$primaryLighter:   lighten($primaryLight,25%);
+$secondary:        $gray;
 $disabled:         $gray;
 
 /**
@@ -42,14 +49,19 @@ $disabled:         $gray;
  */
 
 // Font Families
-$primaryFont:  "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$scriptFont:   "Dancing Script", "Brush Script", cursive;
-$quoteFont:    "IM Fell Great Primer", Garamond, "Times New Roman", Times, serif;
+$sansFont:     "Helvetica Neue", Helvetica, Arial, sans-serif;
+$scriptFont:   "Brush Script", cursive;
+$serifFont:    Georgia, Garamond, "Times New Roman", Times, serif;
 $monoFont:     "Monaco", "Consolas", "Lucida Console", monospace;
+
+// Font Priorities
+$primaryFont: $sansFont;  // Basic font and body copy
+$headerFont: $serifFont;  // Header and display fonts
+$accentFont: $scriptFont; // Specialty font (pullquotes, etc.)
 
 // Font Sizes
 $baseFontSize:          18px;
-$baseFontLineHeight:    1.5; // 24px
+$baseFontLineHeight:    1.5; // 27px
 $mobileBaseFontSize:    16px;
-$mobileBaseLineHeight:  1.5; // 27px
+$mobileBaseLineHeight:  1.5; // 24px
 $modularScaleRatio:     1.25; // 4:3 (Perfect Fifth)

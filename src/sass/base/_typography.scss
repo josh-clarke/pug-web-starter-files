@@ -27,7 +27,7 @@ $modularscale: (
  * See: http://thesassway.com/advanced/modular-css-typography
  */
 
-.h1, .h2, .h3, .h4, .h5, .h6 { font-family: $primaryFont; font-weight: 300; }
+.h1, .h2, .h3, .h4, .h5, .h6 { font-family: $headerFont; font-weight: 300; }
 .h4, .h5 { line-height: ($baseFontSize * $baseFontLineHeight) * 1.5; }
 .h1 {
   @include ms-respond(font-size,6);
@@ -66,7 +66,7 @@ $modularscale: (
   color: $primaryLight;
   text-align: center;
   .q,q {
-    font-family: $quoteFont;
+    font-family: $accentFont;
   }
   .attribution {
     display: block;

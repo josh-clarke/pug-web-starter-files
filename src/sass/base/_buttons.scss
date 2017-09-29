@@ -1,4 +1,7 @@
-// Based on Bootstrap 4 buttons.scss
+/**
+ * Based on Bootstrap 4 buttons.scss
+ * Un-nested to ensure @extend capability
+ */
 
 .btn {
   display: inline-block;

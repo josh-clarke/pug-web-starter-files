@@ -1,7 +1,11 @@
 /**
- * These values will not show up in content, but can be
+ * This CSS provides hidden values that can be
  * queried by JavaScript to know which breakpoint is active.
  * Add or remove as many breakpoints as you like.
+ *
+ * See related script in 'src/js/scripts.js'
+ *
+ * https://www.lullabot.com/articles/importing-css-breakpoints-into-javascript
  */
 @mixin bp($name,$break) {
  @include break($break) {
