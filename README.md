@@ -8,6 +8,7 @@ The purpose of these starter files are to provide a starting point for a set of 
 2. Inside the project folder run the following
   * `npm install`
   * `bower install`
+3. Type `grunt` to build and watch for changes
 
 ## Requirements:
 
@@ -18,37 +19,41 @@ The purpose of these starter files are to provide a starting point for a set of 
 
 These tools are all installed when you run `npm install` and `bower install` after cloning the repo.
 
-### CSS:
+### CSS
 Sass, Autoprefixr (via PostCSS), Modular Scale SASS library
 
 Autoprefixr defaults to "last two versions" but, if you need to adjust based on your requirements: https://github.com/ai/browserslist#queries
 
-### JS:
-JSHint for linting and uglifier for minification.
+### JS
 
-`jquery` library
+#### Building
+* [JSHint](https://github.com/jshint/jshint) for linting
+* [Uglifier](https://github.com/lautis/uglifier) for minification
 
-`object-fit-images` polyfill for IE use of `object-fit`
+#### Included Libraries
+* [JQuery](https://github.com/jquery/jquery)
+* [Modernizr](https://github.com/Modernizr/Modernizr)
+* [Object Fit Images](https://github.com/bfred-it/object-fit-images) polyfill for IE use of `object-fit`
 
-### HTML:
+### HTML
 
-Default file based on HTML5 Boilerplate
+Default file based on [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
 
-CodeKit .kit files for --very simple-- templating with little to no overhead.
+#### Templating
 
-https://www.npmjs.com/package/grunt-codekit
+[Codekit](https://codekitapp.com/help/kit/) .kit files for --very simple-- templating with little to no overhead.
 
-It's a nice simple engine that allows for includes and variables.
+* Includes: `<!-- @import 'partials/_partial.kit' -->`
+* Variables: `<!-- $title: My Great Website -->`
+  * `<title><!--$title--></title>` => `<title>My Great Website</title>`
+
+*Codekit app not required.* Uses [grunt-codekit](https://www.npmjs.com/package/grunt-codekit) plugin. Grunt watch will keep this running and compiling based on the watched files. CTRL-C to quit.
 
 Here is everything you can do with kit: https://codekitapp.com/help/kit/
 
-Grunt watch will keep this running and compiling based on the watched files. CTRL-C to quit.
-
 ### LiveReload:
 
-LiveReload is on - snag the livereload Chrome plugin for easy working:
-
-https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
+LiveReload is on - snag the [LiveReload Chrome Plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) easy working.
 
 ### Bower
 
@@ -70,9 +75,8 @@ Based on:
 
 * https://github.com/gjhead/Starter-Files-Grunt
 
-Integrates some elements from:
+The starter files include some elements from the following open source projects:
 
 * https://github.com/h5bp/html5-boilerplate
 * https://github.com/necolas/normalize.css
 * https://github.com/twbs/bootstrap
-* https://github.com/modularscale/modularscale-sass
