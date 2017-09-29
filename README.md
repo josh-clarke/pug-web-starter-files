@@ -1,4 +1,4 @@
-# SBA HTML Prototype Starter Files
+# HTML Prototype Starter Files
 
 The purpose of these starter files are to provide a starting point for a set of flat HTML files that can be used as a prototype or a starting point for further templating in a web app or CMS.
 

@@ -1,9 +1,9 @@
 {
-	"name": "sba-html-prototype-starter-files",
+	"name": "html-prototype-starter-files",
 	"version": "1.0.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/josh-clarke/sba-html-prototype-starter-files"
+		"url": "https://github.com/josh-clarke/html-prototype-starter-files"
 	},
 	"devDependencies": {
 		"autoprefixer": "^7.1.1",
