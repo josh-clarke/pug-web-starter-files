@@ -1,5 +1,7 @@
 # HTML Prototype Starter Files
 
+![Open Issues](https://img.shields.io/github/issues/josh-clarke/html-prototype-starter-files.svg) ![Project Forks](https://img.shields.io/github/forks/josh-clarke/html-prototype-starter-files.svg) ![GitHub Stars](https://img.shields.io/github/stars/josh-clarke/html-prototype-starter-files.svg) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+
 The purpose of these starter files are to provide a starting point for a set of flat HTML files that can be used as a prototype or a starting point for further templating in a web app or CMS.
 
 ## Getting Started
