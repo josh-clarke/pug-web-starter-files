@@ -1,0 +1,115 @@
+/**
+* Base Font Settings
+*/
+
+body {
+  color: $primary;
+  font-family: $primaryFont;
+  @include ms-respond(font-size,0);
+  line-height: $baseFontLineHeight;
+}
+
+/**
+* Modular Scale Setup
+*/
+
+$modularscale: (
+  base: $mobileBaseFontSize,
+  ratio: $modularScaleRatio, // 4:3
+  $large: (
+    base: $baseFontSize,
+    ratio: $modularScaleRatio,
+  )
+);
+
+/**
+ * Base styles as classes to reduce overrides.
+ * See: http://thesassway.com/advanced/modular-css-typography
+ */
+
+.h1, .h2, .h3, .h4, .h5, .h6 { font-family: $primaryFont; font-weight: 300; }
+.h4, .h5 { line-height: ($baseFontSize * $baseFontLineHeight) * 1.5; }
+.h1 {
+  @include ms-respond(font-size,6);
+  letter-spacing: -2px;
+  line-height: ($baseFontSize * $baseFontLineHeight) * 3;
+}
+.h2 {
+  @include ms-respond(font-size,5);
+  letter-spacing: -1px;
+  line-height: ($baseFontSize * $baseFontLineHeight) * 2.5;
+}
+.h3 {
+  @include ms-respond(font-size,4);
+  line-height: ($baseFontSize * $baseFontLineHeight) * 2;
+}
+.h4 { @include ms-respond(font-size,3); }
+.h5 { @include ms-respond(font-size,2); }
+.h6 { @include ms-respond(font-size,1); }
+
+.fixed { font-family: $monoFont; font-size: $baseFontSize; line-height: $baseFontLineHeight; }
+
+.quiet { font-color: $primaryLight; }
+.loud  { font-color: $primary; }
+
+.italic { font-style: italic; }
+.bold   { font-weight: 700; @extend .loud; }
+
+.block-margins { margin: 1em 0; }
+
+.unordered-list { list-style-type: disc; }
+.ordered-list { list-style: decimal; }
+
+.blockquote {
+  @extend .block-margins;
+  @include ms-respond (font-size,1);
+  color: $primaryLight;
+  text-align: center;
+  .q,q {
+    font-family: $quoteFont;
+  }
+  .attribution {
+    display: block;
+    font-family: $primaryFont;
+    @include ms-respond(font-size,0);
+    margin-top: 1em;
+    &:before { content: "\2014"; }
+  }
+}
+
+.q {
+  &:before {
+    content: "\201C";
+  }
+  &:after {
+    content: "\201D";
+  }
+}
+
+/**
+ * Typography class to apply base styles to actual elements.
+ * Example: <article class="blog-post typography">
+ * See: http://thesassway.com/advanced/modular-css-typography
+ */
+
+.typography {
+ i, em { @extend .italic; }
+ b, strong { @extend .bold; }
+
+ h1, .h1 { @extend .h1; margin: 0 0 3rem; }
+ h2, .h2 { @extend .h2; margin: 0 0 1.5rem; }
+ h3, .h3 { @extend .h3; margin: 0 0 1rem; }
+ h4, .h4 { @extend .h4; margin: 0 0 1rem; }
+ h5, .h5 { @extend .h5; margin: 0 0 1rem; }
+ h6, .h6 { @extend .h6; margin: 0 0 1rem; }
+
+ p, ul, ol, pre { @extend .block-margins; }
+
+ blockquote { @extend .blockquote }
+ q { @extend .q }
+
+ ul { @extend .unordered-list; }
+ ol { @extend .ordered-list; }
+
+ pre, code { @extend .fixed; }
+}

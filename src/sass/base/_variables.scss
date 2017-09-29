@@ -1,0 +1,55 @@
+/**
+* Breakpoint Settings
+* Note: Pixel sizes OK due to modern browser pixel relativity
+*/
+
+$x-small:  481px;
+$small:    769px;
+$medium:   960px;
+$large:    1200px;
+$x-large:  1440px;
+
+// Breakpoint declaration mixin
+
+@mixin break($break) {
+  @media only screen and (min-width: #{$break}) {
+    @content;
+  }
+}
+
+/**
+ * Colors
+ */
+
+// Named Colors
+$white:     #f6f6f6;
+$black:     #222222;
+$gray:      #dddddd;
+$darkgray:  #555555;
+$seagreen:  #70e5cb;
+$darkbrown: #462e14;
+$parchment: #faf2e7;
+
+// Color Priorities
+$primary:          $darkbrown;
+$primaryLight:     lighten($darkbrown, 25%);
+$primaryLighter:   lighten($primaryLight,20%);
+$secondary:        $seagreen;
+$disabled:         $gray;
+
+/**
+ * Type Settings
+ */
+
+// Font Families
+$primaryFont:  "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$scriptFont:   "Dancing Script", "Brush Script", cursive;
+$quoteFont:    "IM Fell Great Primer", Garamond, "Times New Roman", Times, serif;
+$monoFont:     "Monaco", "Consolas", "Lucida Console", monospace;
+
+// Font Sizes
+$baseFontSize:          18px;
+$baseFontLineHeight:    1.5; // 24px
+$mobileBaseFontSize:    16px;
+$mobileBaseLineHeight:  1.5; // 27px
+$modularScaleRatio:     1.25; // 4:3 (Perfect Fifth)

@@ -1,0 +1,79 @@
+.wrapper {
+  margin: 0 auto;
+  width: 90%;
+  width: 90vw;
+
+  @include break($medium) {
+    width: 80%;
+    width: 80vw;
+  }
+}
+
+%clearfix {
+ content: "";
+ display: table;
+ clear: both;
+}
+
+.row {
+ @extend %clearfix;
+}
+
+/**
+ *  Columns
+ *  Note: Un-nested to ensure mixin capability
+ */
+
+.col {
+  float: none;
+  width: 100%;
+  @include break($medium) {
+    margin-right: 3%;
+    float: left;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.col--full {
+  @extend .col;
+  @include break($medium) {
+    float: none;
+  }
+}
+
+.col--half {
+  @extend .col;
+  @include break($medium) {
+    width: 47%;
+  }
+}
+
+.col--1quarter {
+  @extend .col;
+  @include break($medium) {
+    width: 22%;
+  }
+}
+
+.col--3quarters {
+  @extend .col;
+  @include break($medium) {
+    width: 72%;
+  }
+}
+
+.col--1third {
+  @extend .col;
+  @include break($medium) {
+    width: 30%;
+  }
+}
+
+.col--2thirds {
+  @extend .col;
+  @include break($medium) {
+    width: 63%;
+  }
+}

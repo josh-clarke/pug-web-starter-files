@@ -1,0 +1,147 @@
+// Based on Bootstrap 4 buttons.scss
+
+.btn {
+  display: inline-block;
+  font-weight: 300;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  @include ms-respond(font-size, 0);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-out;
+  text-decoration: none;
+
+  // Share hover and focus styles
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+  &:focus,
+  &.focus {
+    outline: 0;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    opacity: .65;
+    box-shadow: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+  }
+}
+
+// Colors
+
+.btn--primary {
+  background: $primary;
+  border-color: $primary;
+  color: $parchment;
+
+  &:hover {
+    background: lighten($primary, 10%);
+  }
+}
+
+.btn--secondary {
+  background: $parchment;
+  border-color: $primary;
+  color: $primary;
+
+  &:hover {
+    background: darken($parchment, 10%);
+  }
+}
+
+.btn--open {
+  @extend .btn--secondary;
+  background: transparentize($parchment,0.75);
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+// Make a button look and behave like a link
+.btn--link {
+  font-weight: 400;
+  color: $primaryLight;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &.active,
+  &:disabled {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  &,
+  &:focus,
+  &:active {
+    border-color: transparent;
+    box-shadow: none;
+  }
+  &:hover {
+    border-color: transparent;
+  }
+  &:hover, &:focus {
+    color: $primaryLighter;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+  &:disabled {
+    color: $primaryLighter;
+
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+
+//
+// Button Sizes
+//
+
+.btn--lg {
+  @include ms-respond(font-size, 1);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.btn--sm {
+  @include ms-respond(font-size, -1);
+  padding: 0.15rem 0.30rem;
+  border-radius: 0.25rem;
+}
+
+
+//
+// Block button
+//
+
+.btn--block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.btn--block + .btn--block {
+  margin-top: 0.5rem;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn--block {
+    width: 100%;
+  }
+}

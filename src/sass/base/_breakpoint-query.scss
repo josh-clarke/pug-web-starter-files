@@ -1,0 +1,22 @@
+/**
+ * These values will not show up in content, but can be
+ * queried by JavaScript to know which breakpoint is active.
+ * Add or remove as many breakpoints as you like.
+ */
+@mixin bp($name,$break) {
+ @include break($break) {
+  content: "#{$name}";
+ }
+}
+
+body {
+  &:before {
+    content: "x-small";
+    display: none; /* Prevent from displaying. */
+
+    @include bp("small",$small);
+    @include bp("medium",$medium);
+    @include bp("large",$large);
+    @include bp("x-large",$x-large);
+  }
+}
