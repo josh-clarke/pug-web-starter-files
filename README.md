@@ -41,13 +41,13 @@ Default file based on [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerpl
 
 #### Templating
 
-[Codekit](https://codekitapp.com/help/kit/) .kit files for --very simple-- templating with little to no overhead.
+[Codekit](https://codekitapp.com/help/kit/) `.kit` files for _very simple_ templating with little to no overhead.
 
 * Includes: `<!-- @import 'partials/_partial.kit' -->`
 * Variables: `<!-- $title: My Great Website -->`
   * `<title><!--$title--></title>` => `<title>My Great Website</title>`
 
-*Codekit app not required.* Uses [grunt-codekit](https://www.npmjs.com/package/grunt-codekit) plugin. Grunt watch will keep this running and compiling based on the watched files. CTRL-C to quit.
+**Codekit app not required.** Uses [grunt-codekit](https://www.npmjs.com/package/grunt-codekit) plugin. Grunt watch will keep this running and compiling based on the watched files. CTRL-C to quit.
 
 Here is everything you can do with kit: https://codekitapp.com/help/kit/
 
