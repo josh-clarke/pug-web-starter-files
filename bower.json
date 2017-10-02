@@ -3,7 +3,6 @@
   "description": "Starter Files for HTML Prototypes",
   "main": "",
   "authors": [
-    "G. Jason Head <jason.h@smithbrosagency.com>",
     "Josh Clarke <josh.c@smithbrosagency.com>"
   ],
   "license": "MIT",
@@ -26,6 +25,9 @@
     "overrides": {
         "jquery": {
             "ignore": true
+        },
+        "object-fit-images": {
+          "main":"dist/ofi.js"
         }
     }
 }

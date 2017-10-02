@@ -1,12 +1,12 @@
 {
-	"name": "html-prototype-starter-files",
-	"version": "2.0.0",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/josh-clarke/html-prototype-starter-files"
-	},
-	"license": "MIT",
-	"scripts": {
+  "name": "html-prototype-starter-files",
+  "version": "2.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josh-clarke/html-prototype-starter-files"
+  },
+  "license": "MIT",
+  "scripts": {
     "build": "gulp"
   },
   "devDependencies": {
@@ -19,14 +19,16 @@
     "gulp-imagemin": "latest",
     "gulp-include": "latest",
     "gulp-load-plugins": "latest",
+    "main-bower-files": "latest",
     "gulp-modernizr": "latest",
-		"gulp-nunjucks": "latest",
+    "gulp-nunjucks": "latest",
     "gulp-order": "latest",
+    "gulp-rename": "latest",
     "gulp-sass": "latest",
     "gulp-size": "latest",
+    "gulp-sourcemaps": "latest",
     "gulp-uglify": "latest",
     "gulp-util": "latest",
-    "main-bower-files": "latest",
     "modernizr": "latest"
   }
 }

@@ -3,29 +3,33 @@ var gulp = require("gulp");
 // Include plugins
 // Removes gulp- and gulp. prefixes
 var p = require("gulp-load-plugins")({
-	pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
+	pattern: ['gulp-*', 'gulp.*'],
 	replaceString: /\bgulp[\-.]/
 });
+p.mainBowerFiles = require("main-bower-files");
 
 // Path Variables
-var src = "src/";   // working files
-var dest = "dist/"; // production files
+var src = "./src/";   // working files
+var dest = "./dist/"; // production files
 
-// Copy unmodified root files
-gulp.task('copy', function(){
-  gulp.src([
-      src + '*',
-      "!" + src + '*.{gif,png,ico,txt}',
-      src + '*.{gif,png,ico,txt}'],
-      {
-        dot: true  // Include hidden, i.e., .htaccess
-    }).pipe(gulp.dest(dest));
-});
+// Kept for reference, but recommend adding unmodified files straight to dest
+// // Copy unmodified root files
+// gulp.task('copy', function(){
+//   gulp.src([
+//       src + '*',
+//       "!" + src + '*.{gif,png,ico,txt}',
+//       src + '*.{gif,png,ico,txt}'],
+//       {
+//         dot: true  // Include hidden, i.e., .htaccess
+//     }).pipe(gulp.dest(dest));
+// });
 
 // Compile nunjucks templates
+// Ignores files that start with _ (for partials or extend tempalates)
 gulp.task('nunjucks', function() {
-  gulp.src(src + 'templates/**/*.+(html|njk|nunjucks)')
+  gulp.src(src + 'templates/**/[^_]*.+(html|njk|nunjucks)')
     .pipe(p.nunjucks.compile( /* Optional data object here */ ))
+    .pipe(p.rename({'extname':'.html'}))
     .pipe(gulp.dest(dest))
     .pipe(p.connect.reload());
 });
@@ -46,13 +50,15 @@ gulp.task('images', function () {
 // + Autoprefixer Postprocessing
 gulp.task('sass', function() {
   gulp.src(src + 'sass/**/*.+(scss|sass)')
-    .pipe(p.sass({outputStyle: 'compressed'}))
-			.on('error', console.log)
-    .pipe(p.autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-			.on('error', console.log)
+    //.pipe(p.sourcemaps.init())         // ******* UNCOMMENT FOR SOURCEMAPS
+      .pipe(p.sass({outputStyle: 'compressed'}))
+  			.on('error', console.log)
+      .pipe(p.autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+      }))
+  			.on('error', console.log)
+    //.pipe(p.sourcemaps.write('.'))     // ******* UNCOMMENT FOR SOURCEMAPS
     .pipe(gulp.dest(dest + 'css'))
     .pipe(p.connect.reload())
 });
@@ -61,34 +67,29 @@ gulp.task('sass', function() {
 gulp.task('scripts', function() {
 
   // JQuery
-  gulp.src(src + 'js/vendor/jquery.js')
+  gulp.src(src + 'bower_components/jquery/dist/jquery.js')
     .pipe(p.uglify())
     .pipe(gulp.dest(dest + 'js/vendor'))
-    .pipe(p.connect.reload())
 
   // Bower Vendor Libraries
-  gulp.src('./bower.json')
-    .pipe(p.mainBowerFiles())
-  	.pipe(p.filter('**/*.js'))
-    // .pipe(p.order([
-  	// 		'jquery.min.js',  // JQuery First
-  	// 		'*'
-  	// 	]))
+  gulp.src(p.mainBowerFiles({debugging:true}), {base:'bower_components'})
+    .pipe(p.filter('**/*.js', { restore: true }))
     .pipe(p.uglify())
     .pipe(p.concat('libs.js'))
-  	.pipe(gulp.dest(dest + 'js/vendor'));
+  	.pipe(gulp.dest(dest + 'js/vendor'))
 
   // JS Plugins
   gulp.src(src + 'js/plugins/*.js')
     .pipe(p.uglify())
     .pipe(p.concat('plugins.js'))
     .pipe(gulp.dest(dest + 'js/vendor'))
-    .pipe(p.connect.reload())
 
   // Custom JS
   gulp.src(src + 'js/*.js')
-    .pipe(p.uglify())
-    .pipe(p.concat('scripts.js'))
+    .pipe(p.sourcemaps.init())
+      .pipe(p.uglify())
+      .pipe(p.concat('scripts.js'))
+    .pipe(p.sourcemaps.write('.'))
     .pipe(gulp.dest(dest + 'js'))
     .pipe(p.connect.reload())
 
@@ -96,9 +97,8 @@ gulp.task('scripts', function() {
 
 // Add needed Modernizr features
 gulp.task('modernizr', function() {
-  gulp.src([
-      dest + 'js/vendor/*.js'
-    ]).pipe(p.modernizr())
+  gulp.src(src + 'js/vendor/*.js')
+    .pipe(p.modernizr())
     .pipe(gulp.dest(dest + 'js'))
 });
 
@@ -119,4 +119,4 @@ gulp.task('watch', function(){
   gulp.watch(src + 'js/**/*.js', ['scripts']);
 });
 
-gulp.task('default', ['copy','nunjucks','images','sass','scripts','modernizr','connect','watch']);
+gulp.task('default', ['nunjucks','images','sass','scripts','modernizr','connect','watch']);
