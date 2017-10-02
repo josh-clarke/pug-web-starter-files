@@ -22,5 +22,10 @@
   },
   "devDependencies": {
     "modular-scale": "^3.0.2"
-  }
+  },
+    "overrides": {
+        "jquery": {
+            "ignore": true
+        }
+    }
 }
