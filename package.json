@@ -1,9 +1,9 @@
 {
-  "name": "html-prototype-starter-files",
+  "name": "nunjucks-web-starter-files",
   "version": "2.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/josh-clarke/html-prototype-starter-files"
+    "url": "https://github.com/josh-clarke/nunjucks-web-starter-files"
   },
   "license": "MIT",
   "scripts": {

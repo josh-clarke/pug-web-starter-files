@@ -1,6 +1,6 @@
 {
-  "name": "html-prototype-starter-files",
-  "description": "Starter Files for HTML Prototypes",
+  "name": "nunjucks-web-starter-files",
+  "description": "Starter Files for HTML Prototypes Using Nunjucks",
   "main": "",
   "authors": [
     "Josh Clarke <josh.c@smithbrosagency.com>"
