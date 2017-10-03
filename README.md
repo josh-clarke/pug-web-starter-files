@@ -1,6 +1,6 @@
 # Nunjucks Web Starter Files
 
-These starter files can be used to generate a prototype or flat-file website. The Nunjucks template language is used for the HTML due to its close relationship to Twig. After using this starter kit to build flat HTML prototypes, the Nunjuck files can then be re-used as a starter point for Twig-based templates such as [Wordpress with Timber](https://wordpress.org/plugins/timber-library/) or [Craft CMS](https://craftcms.com), or any platforms which can use Nunjucks or Jinja.
+These starter files can be used to generate a prototype or flat-file website. The Nunjucks template language is used for the HTML due to its close relationship to Twig. After using this starter kit to build flat HTML prototypes, the Nunjuck files can then be re-used as a starter point for Twig-based templates such as [Wordpress with Timber](https://wordpress.org/plugins/timber-library/) or [Craft CMS](https://craftcms.com), and any platforms which can use Nunjucks or Jinja.
 
 ![Open Issues](https://img.shields.io/github/issues/josh-clarke/nunjucks-web-starter-files.svg) ![Project Forks](https://img.shields.io/github/forks/josh-clarke/nunjucks-web-starter-files.svg) ![GitHub Stars](https://img.shields.io/github/stars/josh-clarke/nunjucks-web-starter-files.svg) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -15,7 +15,7 @@ These starter files can be used to generate a prototype or flat-file website. Th
 ## Getting Started
 
 1. Fork and clone repository or download the ZIP file
-2. Inside the project folder run the following
+2. Inside the project folder, run the following
     * `npm install`
     * `bower install`
 3. Type `gulp` to build and watch for changes
