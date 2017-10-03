@@ -1,8 +1,16 @@
 # Nunjucks Web Starter Files
 
-These starter files can be used for a flat-file site or prototype. The Nunjucks template language is used for the HTML due to its close relationship to Twig. After using this starter kit to build flat HTML prototypes, the Nunjuck files can then be used as a starter point for Twig-based templates such as [Wordpress with Timber](https://wordpress.org/plugins/timber-library/) or [Craft CMS](https://craftcms.com).
+These starter files can be used to generate a prototype or flat-file website. The Nunjucks template language is used for the HTML due to its close relationship to Twig. After using this starter kit to build flat HTML prototypes, the Nunjuck files can then be re-used as a starter point for Twig-based templates such as [Wordpress with Timber](https://wordpress.org/plugins/timber-library/) or [Craft CMS](https://craftcms.com), or any platforms which can use Nunjucks or Jinja.
 
 ![Open Issues](https://img.shields.io/github/issues/josh-clarke/nunjucks-web-starter-files.svg) ![Project Forks](https://img.shields.io/github/forks/josh-clarke/nunjucks-web-starter-files.svg) ![GitHub Stars](https://img.shields.io/github/stars/josh-clarke/nunjucks-web-starter-files.svg) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+
+## Requirements:
+
+* [NodeJS](https://nodejs.org)
+* [Gulp](https://github.com/gulpjs/gulp) (installed globally)
+  * `npm i -g gulp-cli`
+* [Bower](https://github.com/bower/bower) (installed globally)
+  * `npm i -g bower`
 
 ## Getting Started
 
@@ -12,14 +20,6 @@ These starter files can be used for a flat-file site or prototype. The Nunjucks 
     * `bower install`
 3. Type `gulp` to build and watch for changes
     * Launches web server with LiveReload at http://localhost:8080
-
-## Requirements:
-
-* [NodeJS](https://nodejs.org)
-* [Gulp](https://github.com/gulpjs/gulp) (installed globally)
-  * `npm i -g gulp-cli`
-* [Bower](https://github.com/bower/bower) (installed globally)
-  * `npm i -g bower`
 
 ## Features
 
