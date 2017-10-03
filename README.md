@@ -135,8 +135,8 @@ By default, the following setup is used:
 ## Working File Layout
 
 ```
-/
-└ dist/         # distribution folder
+./
+ └ dist/         # distribution folder
     └ css/      
     └ images/   
     └ js/
@@ -146,7 +146,7 @@ By default, the following setup is used:
             └ jquery.js    # from bower
             └ plugins.js   # from /src/plugins/ directory
             └ modernizr.js # custom modernizr       
-└ src/          # working folder
+ └ src/          # working folder
     └ images/   # images to be optimized
     └ js/
         └ scripts.js   # use this for custom scripts
