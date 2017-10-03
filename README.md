@@ -50,7 +50,8 @@ These starter files can be used to generate a prototype or flat-file website. Th
 * [Sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) is available but not configured for JavaScript
 
 ### Images
-* Images optimized by default with [imagemin](https://github.com/sindresorhus/gulp-imagemin)
+* Images placed in `./src/images/` are optimized by default with [imagemin](https://github.com/sindresorhus/gulp-imagemin)
+  * Place directly in `./dist/images/` if optimization is not needed or undesired
 
 
 ## Templating
