@@ -125,7 +125,7 @@ By default, the following setup is used:
     * Builds to `./dist/`
 * CSS/SASS
     * Write SCSS or SASS in `./src/sass/`
-      * `main.scss` - Include partials in here
+      * `main.scss` - Import all partials in here
       * `base/` - Base styles
       * `modules/` - Per module styles
       * `vendor/` - Vendor module styles
