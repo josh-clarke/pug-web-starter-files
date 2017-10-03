@@ -1,8 +1,8 @@
 # Nunjucks Web Starter Files
 
-![Open Issues](https://img.shields.io/github/issues/josh-clarke/nunjucks-web-starter-files.svg) ![Project Forks](https://img.shields.io/github/forks/josh-clarke/nunjucks-web-starter-files.svg) ![GitHub Stars](https://img.shields.io/github/stars/josh-clarke/nunjucks-web-starter-files.svg) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+These starter files can be used for a flat-file site or prototype. The Nunjucks template language is used for the HTML due to its close relationship to Twig. After using this starter kit to build flat HTML prototypes, the Nunjuck files can then be used as a starter point for Twig-based templates such as [Wordpress with Timber](https://wordpress.org/plugins/timber-library/) or [Craft CMS](https://craftcms.com).
 
-These starter files provide a starting point for a set of flat HTML files that can be used as a prototype or a starting point for further templating in a web app or CMS.
+![Open Issues](https://img.shields.io/github/issues/josh-clarke/nunjucks-web-starter-files.svg) ![Project Forks](https://img.shields.io/github/forks/josh-clarke/nunjucks-web-starter-files.svg) ![GitHub Stars](https://img.shields.io/github/stars/josh-clarke/nunjucks-web-starter-files.svg) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Getting Started
 
@@ -119,7 +119,7 @@ By default, the following setup is used:
       * `modules/` - Per module styles
       * `vendor/` - Vendor module styles
     * Name partials with a leading underscore `_`
-    * Concatenates to `./dist/css/main.js`
+    * Concatenates to `./dist/css/main.css`
 * JS
     * User scripts in `./src/js/*.js` concatenated to `./dist/js/scripts.js`
     * Non-Bower-Managed plugins in `plugins/` concatenated to `./dist/js/vendor/plugins.js`
