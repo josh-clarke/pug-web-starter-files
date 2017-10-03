@@ -98,6 +98,16 @@ The best way to template with [Nunjucks](https://mozilla.github.io/nunjucks/temp
 </html>
 ```
 
+You can also include partials with a simple include line:
+
+```nunjucks
+<header>
+  {% include "_partials/_hero-slider.njk" %}
+</header>
+```
+
+_For more advanced techniques, check out the [Nunjucks templating documentation](https://mozilla.github.io/nunjucks/templating.html)._
+
 # Default Setup
 
 By default, the following setup is used:
