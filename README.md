@@ -116,9 +116,10 @@ By default, the following setup is used:
     * `./src/` - Working directory
     * `./dist/` - Production directory
         * This directory and its subfolders will not be created until the first `gulp` build command
-* GULP build tool
-    * `gulp` command for default build with LiveReload preview, also starts watch
-    * `gulp watch` command to build/copy css, js, html, images on save
+* Gulp
+    * `gulp` command for default build with LiveReload preview, also starts watching files
+      * Launches web server with LiveReload at http://localhost:8080
+    * `gulp watch` command to watch files for changes
 * HTML/Nunjucks
     * Build templates in `./src/templates/` using either the `.njk`, `.nunjucks`, or `.html` extension
     * Name partials and base extends with a leading underscore `_`
