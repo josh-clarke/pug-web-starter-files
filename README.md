@@ -8,10 +8,10 @@ These starter files provide a starting point for a set of flat HTML files that c
 
 1. Fork and clone repository or download the ZIP file
 2. Inside the project folder run the following
-  * `npm install`
-  * `bower install`
+    * `npm install`
+    * `bower install`
 3. Type `gulp` to build and watch for changes
-  * Launches web server with LiveReload at http://localhost:8080
+    * Launches web server with LiveReload at http://localhost:8080
 
 ## Requirements:
 
