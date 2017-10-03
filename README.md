@@ -46,7 +46,7 @@ These starter files can be used to generate a prototype or flat-file website. Th
 * Compresses JS files with [Uglify](https://www.npmjs.com/package/gulp-uglify)
 * [Modernizr Gulp plugin](https://www.npmjs.com/package/gulp-modernizr) automatically generates custom Modernizr file from JS files
     * Does **not** include `html5shiv`
-* No linter because my IDE does this - add your own if needed
+* No linter because my editor does this - add your own if needed
 * [Sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) is available but not configured for JavaScript
 
 ### Images
