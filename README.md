@@ -141,7 +141,7 @@ By default, the following setup is used:
         * JQuery included; concatenates to `./dist/js/vendor/jquery.js`
 * Images
     * Place images for processing in `./src/images/`
-    * Runs imagemin default optmization (change in `gulpfile.js`)
+    * Runs imagemin default optimization (change in `gulpfile.js`)
     * Outputs to `./dist/images/`
 
 ## Working File Layout
