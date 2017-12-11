@@ -1,6 +1,6 @@
 {
   "name": "nunjucks-web-starter-files",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/josh-clarke/nunjucks-web-starter-files"
@@ -10,25 +10,30 @@
     "build": "gulp"
   },
   "devDependencies": {
-    "gulp": "latest",
-    "gulp-autoprefixer": "latest",
-    "gulp-cache": "latest",
-    "gulp-concat": "latest",
-    "gulp-connect": "latest",
-    "gulp-filter": "latest",
-    "gulp-imagemin": "latest",
-    "gulp-include": "latest",
-    "gulp-load-plugins": "latest",
-    "main-bower-files": "latest",
-    "gulp-modernizr": "latest",
-    "gulp-nunjucks": "latest",
-    "gulp-order": "latest",
-    "gulp-rename": "latest",
-    "gulp-sass": "latest",
-    "gulp-size": "latest",
-    "gulp-sourcemaps": "latest",
-    "gulp-uglify": "latest",
-    "gulp-util": "latest",
-    "modernizr": "latest"
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "browser-sync": "^2.18.13",
+    "browserify": "^14.5.0",
+    "del": "^3.0.0",
+    "gulp": "gulpjs/gulp.git#4.0",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cache": "^1.0.1",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-include": "^2.3.1",
+    "gulp-nunjucks": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "modularscale-sass": "^3.0.4",
+    "object-fit-images": "bfred-it/object-fit-images"
   }
 }

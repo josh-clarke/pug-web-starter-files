@@ -1,4 +1,13 @@
+// Require for use with browserify
+var preventConsoleErrors = require('./plugins/prevent-console-errors');
+var objectFitImages = require('object-fit-images/dist/ofi');
+var $ = require('jquery/dist/jquery');
+
+preventConsoleErrors();
+objectFitImages();
+
 $(function() {
+
 
   //Breakpoint Checker
   //source: https://www.lullabot.com/articles/importing-css-breakpoints-into-javascript
@@ -12,5 +21,7 @@ $(function() {
     breakpoint.refreshValue();
     // Do other things on breakpoint refresh here
   }).resize();
+
+  $(p).text += 'Test'
 
 });
