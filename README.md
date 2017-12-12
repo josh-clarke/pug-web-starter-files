@@ -15,7 +15,7 @@ After using this starter kit to build flat HTML prototypes, the Nunjucks files c
 
 ## Requirements:
 
-* [NodeJS](https://nodejs.org)
+* [NodeJS](https://nodejs.org) LTS+
 * [Yarn](https://yarnpkg.org)
   * MacOS: `brew install yarn`
   * Windows: [Get Installer](https://yarnpkg.com/latest.msi)
@@ -60,7 +60,7 @@ After using this starter kit to build flat HTML prototypes, the Nunjucks files c
 ```
 
 * Compresses JS files with [Uglify](https://www.npmjs.com/package/gulp-uglify)
-* No linger—add your own if needed
+* No linter—add your own if needed
 * [Sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) is available but not configured for JavaScript
 
 ### Images
@@ -126,13 +126,15 @@ _For more advanced techniques, check out the [Nunjucks templating documentation]
 
 By default, the following setup is used:
 
-* Working and Production directories
-    * `./src/` - Working directory
-    * `./dist/` - Production directory
+* Working and Production directories (change in `gulp-config.js`)
+    * `src` - Working directory
+    * `dist` - Production directory
         * This directory and its subfolders will not be created until the first `gulp` build command
+    * `assets` - Assets directory for images, CSS, scripts
+    * `templates` - Templates directory for Nunjucks files
 * Gulp
     * `gulp` command for default build with BrowserSync preview, also starts watching files
-      * Launches web server with LiveReload at http://localhost:3000
+      * Launches web server with BrowserSync at http://localhost:3000
     * `gulp watch` command to watch files for changes
 * HTML/Nunjucks
     * Build templates in `./src/templates/` using either the `.njk`, `.nunjucks`, `.njk.html` or `.html` extension
@@ -142,8 +144,6 @@ By default, the following setup is used:
     * Write SCSS or SASS in `./src/assets/sass/`
       * `main.scss` - Import all partials in here
       * `base/` - Base styles
-      * `modules/` - Per module styles
-      * `vendor/` - Vendor module styles
     * Name partials with a leading underscore `_`
     * Concatenates to `./dist/assets/css/main.css`
     * **Note:** Use `yarn add <module> --dev` to maintain SASS libraries and link to them directly
@@ -152,7 +152,7 @@ By default, the following setup is used:
     * User script file in `./src/assets/js/scripts.js` uses gulp-include directives to set bundle order of additional scripts
     * Place additional scripts in `plugins/`
     * **Note:** Use `yarn add <module> --dev` to maintain JS libraries and link to them directly
-      * Example: `//require= ../../../node_modules/jquery/dist/jquery.js`
+      * Example: `//=require ../../../node_modules/jquery/dist/jquery.js`
 * Images
     * Place images for processing in `./src/assets/images/`
     * Runs imagemin default optimization (change in `gulpfile.babel.js`)
@@ -162,20 +162,21 @@ By default, the following setup is used:
 
 ```
 ./
- └ dist/         # distribution folder
+ └ dist/                # distribution folder
     └ assets
       └ css/      
+        └ main.css      # main CSS file
       └ images/   
       └ js/
-          └ scripts.js   # bundled scripts
- └ src/          # working folder
+          └ scripts.js  # bundled scripts
+ └ src/                 # working folder
     └ assets
-      └ images/   # images to be optimized
+      └ images/         # images to be optimized
       └ js/
-          └ scripts.js   # use this for custom scripts
-          └ plugins/     # use for non-package.json scripts
+          └ scripts.js  # use this for custom scripts
+          └ plugins/    # use for non-package.json scripts
       └ scss/
-          └ main.scss    # use this to include partials
+          └ main.scss   # use this to include partials
           └ base/        
               └ _breakpoint-query.scss
               └ _buttons.scss
@@ -183,11 +184,9 @@ By default, the following setup is used:
               └ _scaffolding.scss
               └ _typography.scss
               └ _variables.scss
-          └ modules/      # use to style individual modules
-          └ vendor/       # use to include vendor module styles
-     └ templates/      # use for HTML/Nunjucks templates
-        └ _base.njk   # base template
-        └ index.njk   # index.html, extends _base.njk
+     └ templates/       # use for HTML/Nunjucks templates
+        └ _base.njk     # base template
+        └ index.njk     # index.html, extends _base.njk
 ```
 
 ## Saving New Components
