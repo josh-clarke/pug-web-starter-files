@@ -11,11 +11,11 @@ import rename from 'gulp-rename'
 import sass from 'gulp-sass'
 import size from 'gulp-size'
 import sourcemaps from 'gulp-sourcemaps'
+import order from 'gulp-order'
 import uglify from 'gulp-uglify'
 import source from 'vinyl-source-stream'
 import buffer from 'vinyl-buffer'
 import util from 'gulp-util'
-import browserify from 'browserify'
 import browserSync from 'browser-sync'
 import { paths } from './gulp-config.js'
 
@@ -25,22 +25,15 @@ gulp.task('default', gulp.series(clean, gulp.parallel(scripts, styles, images, t
 gulp.task('watch', gulp.parallel(serve, watch))
 
 /**
- * Process scripts file with Browserify into one bundle.
+ * Process scripts file with gulp-include into one bundle.
  */
 function scripts() {
-	// set up the browserify instance on a task basis
-  var b = browserify({
-    entries: `${paths.src}/${paths.assets}/js/scripts.js`,
-    debug: true
-  });
-
-  return b.bundle()
-    .pipe(source(`scripts.js`)) // This will be the output name
-    .pipe(buffer())
+  return gulp.src(`${paths.src}/${paths.assets}/js/scripts.js`)
     .pipe(sourcemaps.init({loadMaps: true}))
         // Add transformation tasks to the pipeline here.
+        .pipe(include())
         .pipe(uglify())
-        .on('error', util.log)
+          .on('error', util.log)
     .pipe(sourcemaps.write(`.`))
     .pipe(gulp.dest(`${paths.out}/${paths.assets}/js`))
 }
@@ -94,7 +87,7 @@ function serve() {
     server: {
         baseDir: `./${paths.out}`
     }
-  });	
+  });
 
 	gulp.watch(`${paths.out}/${paths.assets}/js/**/*.js`, sync.reload)
 	gulp.watch(`${paths.out}/${paths.assets}/images/**/*.(png|jpg|jpeg|gif|webp)`, sync.reload)
