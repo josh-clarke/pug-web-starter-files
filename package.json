@@ -1,9 +1,9 @@
 {
-  "name": "nunjucks-web-starter-files",
-  "version": "3.0.0",
+  "name": "pug-web-starter-files",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/josh-clarke/nunjucks-web-starter-files"
+    "url": "https://github.com/josh-clarke/pug-web-starter-files"
   },
   "license": "MIT",
   "scripts": {
@@ -20,16 +20,14 @@
     "gulp-cache": "^1.0.1",
     "gulp-imagemin": "^4.0.0",
     "gulp-include": "^2.3.1",
-    "gulp-nunjucks": "^3.0.0",
     "gulp-order": "^1.1.1",
+    "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "gulp-util": "^3.0.8"
   },
   "dependencies": {
     "jquery": "^3.2.1",

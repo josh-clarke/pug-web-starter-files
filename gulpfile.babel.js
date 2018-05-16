@@ -6,15 +6,13 @@ import cache from 'gulp-cache'
 import del from 'del'
 import imagemin from 'gulp-imagemin'
 import include from 'gulp-include'
-import nunjucks from 'gulp-nunjucks'
+import pug from 'gulp-pug'
 import rename from 'gulp-rename'
 import sass from 'gulp-sass'
 import size from 'gulp-size'
 import sourcemaps from 'gulp-sourcemaps'
 import order from 'gulp-order'
 import uglify from 'gulp-uglify'
-import source from 'vinyl-source-stream'
-import buffer from 'vinyl-buffer'
 import util from 'gulp-util'
 import browserSync from 'browser-sync'
 import { paths } from './gulp-config.js'
@@ -73,9 +71,11 @@ function images() {
  * Process nunjucks templates
  */
 function templates() {
-	return gulp.src(`${paths.src}/${paths.templates}/**/[^_]*.+(html|njk|njk.html|nunjucks)`)
-    .pipe(nunjucks.compile( /* Optional data object here */ ))
-    .pipe(rename({'extname':'.html'}))
+	return gulp.src(`${paths.src}/${paths.templates}/**/[^_]*.+(pug|jade)`)
+    .pipe(pug({
+      verbose: true
+    }))
+    //.pipe(rename({'extname':'.html'}))
     .pipe(gulp.dest(`${paths.out}`))
 }
 
@@ -110,5 +110,5 @@ function watch() {
 	gulp.watch(`${paths.src}/${paths.assets}/sass/**/*.+(scss|sass)`, styles)
   gulp.watch(`${paths.src}/${paths.assets}/js/**/*.js`, scripts)
 	gulp.watch(`${paths.src}/${paths.assets}/images/**/*.(png|jpg|jpeg|gif)`, images)
-  gulp.watch(`${paths.src}/${paths.templates}/**/*.+(html|njk|njk.html|nunjucks)`, templates)
+  gulp.watch(`${paths.src}/${paths.templates}/**/*.+(pug|jade)`, templates)
 }

@@ -1,17 +1,16 @@
-# Nunjucks Web Starter Files
+# Pug Web Starter Files
 
-## New Features in v3.0+
+
+![Open Issues](https://img.shields.io/github/issues/josh-clarke/pug-web-starter-files.svg) ![Project Forks](https://img.shields.io/github/forks/josh-clarke/pug-web-starter-files.svg) ![GitHub Stars](https://img.shields.io/github/stars/josh-clarke/pug-web-starter-files.svg) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+
+## Features
 * **Gulp 4 (alpha) with an ES6 Babel gulpfile**
 * **Config file for paths `gulp-config.js`**
 * **Uses Yarn instead of Bower+NPM**
 * **Uses `gulp-include` directives to bundle all scripts**
 * **Relies on binaries from the local project's `./node_modules/bin` instead of globals (except Yarn)**
 
-These starter files can be used to generate a prototype or flat-file website. The Nunjucks template language is used for the HTML due to its close relationship to Twig.
-
-After using this starter kit to build flat HTML prototypes, the Nunjucks files can then be re-used as a starter point for Twig-based templates such as [Wordpress with Timber](https://wordpress.org/plugins/timber-library/) or [Craft CMS](https://craftcms.com), and any platforms which can use Nunjucks or Jinja.
-
-![Open Issues](https://img.shields.io/github/issues/josh-clarke/nunjucks-web-starter-files.svg) ![Project Forks](https://img.shields.io/github/forks/josh-clarke/nunjucks-web-starter-files.svg) ![GitHub Stars](https://img.shields.io/github/stars/josh-clarke/nunjucks-web-starter-files.svg) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+These starter files can be used to generate a prototype or flat-file website. The Pug template language is used for the HTML due to its terse structure and integration of JavaScript.
 
 ## Requirements:
 
@@ -33,8 +32,8 @@ After using this starter kit to build flat HTML prototypes, the Nunjucks files c
 
 ### HTML
 
-* [Nunjucks](https://mozilla.github.io/nunjucks/) template language (nearly equivalent to Twig), compiles to flat HTML
-  * Extend/Include templates, Variables, If/Else logic and [more](https://mozilla.github.io/nunjucks/templating.html)
+* [Pug](https://pugjs.org/) template language (formerly Jade) with a nice terse syntax
+  * Extend/Include templates, Scripting, Mixins, Interpolation and [more](https://pugjs.org/)
 * Starter template based on [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
 
 ### CSS
@@ -70,33 +69,33 @@ After using this starter kit to build flat HTML prototypes, the Nunjucks files c
 
 ## Templating
 
-The best way to template with [Nunjucks](https://mozilla.github.io/nunjucks/templating.html), a Twig-like template language, is to extend from a base template. Base templates or partials should be prefixed with an underscore `_` to prevent them from compiling into their own standalone templates. For example:
+The best way to template with [Pug](https://pugjs.org/language/attributes.html), a HAML-like template language, is to extend from a base template. Base templates or partials should be prefixed with an underscore `_` to prevent them from compiling into their own standalone templates. For example:
 
-**Base Template (Simplified): `_base.njk`**
+**Base Template (Simplified): `_base.pug`**
 
-```nunjucks
-<!DOCTYPE html>
-<html>
-  <head><title>{{ title }}</title></head>
-  <body>
-    {% block content %}
-      <p>Fallback content</p>
-    {% endblock content %}
-  </body>
-</html>
+```pug
+doctype html
+html
+block vars
+  - var title = Fallback Title
+head
+  title #{title}
+body
+  block content
+    p Fallback content.
 ```
 
-**Extended Template: `index.njk`**
+**Extended Template: `index.pug`**
 
-```nunjucks
-{% extends "_base.njk" %}
+```pug
+extends _base.pug
 
-{% set title = "Hello World" %}
+block vars
+  - var title = "Hello World"
 
-{% block content %}
-  <h1>Hello World!</h1>
-  <p>You've reached my site!</p>
-{% endblock content %}
+block content
+  h1 Hello World!
+  p You've reached my site!
 ```
 
 **Outputs (Simplified): `index.html`**
@@ -114,10 +113,9 @@ The best way to template with [Nunjucks](https://mozilla.github.io/nunjucks/temp
 
 You can also include partials with a simple include line:
 
-```nunjucks
-<header>
-  {% include "_partials/_hero-slider.njk" %}
-</header>
+```pug
+header
+  include _partials/_hero-slider.pug
 ```
 
 _For more advanced techniques, check out the [Nunjucks templating documentation](https://mozilla.github.io/nunjucks/templating.html)._
@@ -136,8 +134,8 @@ By default, the following setup is used:
     * `gulp` command for default build with BrowserSync preview, also starts watching files
       * Launches web server with BrowserSync at http://localhost:3000
     * `gulp watch` command to watch files for changes
-* HTML/Nunjucks
-    * Build templates in `./src/templates/` using either the `.njk`, `.nunjucks`, `.njk.html` or `.html` extension
+* Pug Templates
+    * Build templates in `./src/templates/` using either the `.pug`, or `.jade` extension
     * Name partials and base extends with a leading underscore `_`
     * Builds to `./dist/`
 * CSS/SASS
@@ -184,9 +182,9 @@ By default, the following setup is used:
               └ _scaffolding.scss
               └ _typography.scss
               └ _variables.scss
-     └ templates/       # use for HTML/Nunjucks templates
-        └ _base.njk     # base template
-        └ index.njk     # index.html, extends _base.njk
+     └ templates/       # use for Pug templates
+        └ _base.pug     # base template
+        └ index.pug     # index.html, extends _base.pug
 ```
 
 ## Saving New Components
@@ -198,13 +196,12 @@ Use the following commands to add modules or libraries to `package.json`. When y
 * If you want to shift all packages to their latest versions, you can do `yarn upgrade`. **Do not do this unless you know what you are doing, as it could break your project.**
 
 
-## Thanks and Credits
+## Notes
 
-Inspired by:
+**Based on:**
 
-* https://github.com/jh3y/gulp-boilerplate
-* https://github.com/gjhead/Starter-Files-Grunt
+* https://github.com/josh-clarke/nunjucks-web-starter-files
 
-## MIT
+**License**
 
-Released under an [MIT license](https://github.com/josh-clarke/nunjucks-web-starter-files/blob/master/LICENSE).
+Released under an [MIT license](https://github.com/josh-clarke/pug-web-starter-files/blob/master/LICENSE).
