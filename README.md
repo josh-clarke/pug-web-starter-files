@@ -118,7 +118,7 @@ header
   include _partials/_hero-slider.pug
 ```
 
-_For more advanced techniques, check out the [Nunjucks templating documentation](https://mozilla.github.io/nunjucks/templating.html)._
+_For more information, check out the [Pug templating documentation](https://pugjs.orig)._
 
 # Default Setup
 
