@@ -77,7 +77,7 @@ The best way to template with [Pug](https://pugjs.org/language/attributes.html),
 doctype html
 html
 block vars
-  - var title = Fallback Title
+  - var title = 'Fallback Title'
 head
   title #{title}
 body
@@ -91,7 +91,7 @@ body
 extends _base.pug
 
 block vars
-  - var title = "Hello World"
+  - var title = 'Hello World'
 
 block content
   h1 Hello World!
