@@ -9,6 +9,7 @@
 * **Uses Yarn instead of Bower+NPM**
 * **Uses `gulp-include` directives to bundle all scripts**
 * **Relies on binaries from the local project's `./node_modules/bin` instead of globals (except Yarn)**
+  * Use with an [`npm` script](https://docs.npmjs.com/misc/scripts) or just [add the local binaries to your PATH](https://github.com/zeke/add-local-binaries-to-path).
 
 These starter files can be used to generate a prototype or flat-file website. The Pug template language is used for the HTML due to its terse structure and integration of JavaScript.
 
