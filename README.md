@@ -212,6 +212,12 @@ If you want to shift all packages to their latest versions, you can do `yarn upg
 
 * https://github.com/josh-clarke/nunjucks-web-starter-files
 
+**Inspired by:**
+
+* https://github.com/jh3y/gulp-boilerplate
+* https://github.com/gjhead/Starter-Files-Grunt
+* https://github.com/gjhead/Starter-Files-Gulp4
+
 **License**
 
 Released under an [MIT license](https://github.com/josh-clarke/pug-web-starter-files/blob/master/LICENSE).
