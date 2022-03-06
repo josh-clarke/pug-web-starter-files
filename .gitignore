@@ -24,14 +24,15 @@
 
 
 # OS or Editor folders
-.DS_Store
+*.DS_Store*
 Thumbs.db
 .cache
 .project
 .settings
 .buildpath
 .tmproj
-node_modules
+*node_modules/*
 config.codekit
 *bower_components*
 *.pre-css*
+*dist/*
