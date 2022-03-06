@@ -11,10 +11,10 @@ $(function() {
     this.value = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
   };
 
-  $(window).resize(function() {
+  $(window).on('resize', function() {
     breakpoint.refreshValue();
     // Do other things on breakpoint refresh here
-  }).resize();
+  }).trigger('resize');
 
   $(p).text += 'Test'
 

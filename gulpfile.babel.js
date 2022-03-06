@@ -8,7 +8,8 @@ import imagemin from 'gulp-imagemin'
 import include from 'gulp-include'
 import pug from 'gulp-pug'
 import rename from 'gulp-rename'
-import sass from 'gulp-sass'
+import gulpSass from 'gulp-sass'
+import nodeSass from 'node-sass'
 import size from 'gulp-size'
 import sourcemaps from 'gulp-sourcemaps'
 import order from 'gulp-order'
@@ -18,9 +19,12 @@ import browserSync from 'browser-sync'
 import { paths } from './gulp-config.js'
 
 const sync = browserSync.create();
+const sass = gulpSass(nodeSass)
 
+// Initiations
 gulp.task('default', gulp.series(clean, gulp.parallel(scripts, styles, images, templates), gulp.parallel(serve, watch)))
 gulp.task('watch', gulp.parallel(serve, watch))
+
 
 /**
  * Process scripts file with gulp-include into one bundle.
@@ -45,7 +49,6 @@ function styles() {
 			.pipe(sass({outputStyle: 'compressed'}))
 				.on('error',util.log)
 			.pipe(autoprefixer({
-				browsers: ['last 2 versions'],
 				cascade: false
 			}))
 				.on('error', util.log)
