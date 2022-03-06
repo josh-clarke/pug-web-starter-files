@@ -3,15 +3,19 @@
 
 ![Open Issues](https://img.shields.io/github/issues/josh-clarke/pug-web-starter-files.svg) ![Project Forks](https://img.shields.io/github/forks/josh-clarke/pug-web-starter-files.svg) ![GitHub Stars](https://img.shields.io/github/stars/josh-clarke/pug-web-starter-files.svg) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Features
-* **Gulp 4 (alpha) with an ES6 Babel gulpfile**
-* **Config file for paths `gulp-config.js`**
-* **Uses Yarn instead of Bower+NPM**
-* **Uses `gulp-include` directives to bundle all scripts**
-* **Relies on binaries from the local project's `./node_modules/bin` instead of globals (except Yarn)**
-  * Use with an [`npm` script](https://docs.npmjs.com/misc/scripts) or just [add the local binaries to your PATH](https://github.com/zeke/add-local-binaries-to-path).
+These starter files can be used to quickly develop a prototype or flat-file website. The [Pug](https://pugjs.org) template language is used for the HTML due to its terse structure and integration of JavaScript, and Sass is used for its flexibility and [Sass](https://sass-lang.com) capability.
 
-These starter files can be used to generate a prototype or flat-file website. The Pug template language is used for the HTML due to its terse structure and integration of JavaScript.
+
+## Highlights
+* **[Pug](https://pugjs.org/) template language (formerly Jade) with a nice terse syntax**
+* **[Sass](https://sass-lang.com) for writing quick CSS**
+* **[jQuery](https://jquery.org) incldued**
+* **[PostCSS](https://github.com/postcss/gulp-postcss) with the [Autoprefixer](https://github.com/postcss/autoprefixer) and [CSSNano](https://github.com/cssnano/cssnano) extensions**
+* **Simple building with Gulp 4 with a Babel gulpfile for ES6 syntax**
+  * **Separate config file for paths `gulp-config.js`**
+* **Uses Yarn**
+* **Relies on local `node_modules` instead of globals (except Yarn) for version management**
+  * Use with an [`npm` script](https://docs.npmjs.com/misc/scripts) or just [add the local binaries to your PATH](https://github.com/zeke/add-local-binaries-to-path).
 
 ## Requirements:
 
@@ -20,16 +24,17 @@ These starter files can be used to generate a prototype or flat-file website. Th
   * MacOS: `brew install yarn`
   * Windows: [Get Installer](https://yarnpkg.com/latest.msi)
   * Linux: [Instructions](https://yarnpkg.com/en/docs/install#linux-tab)
-* [Gulp4](https://github.com/gulpjs/gulp#4.0)
+* [Gulp 4](https://gulpjs.com/docs/en/getting-started/quick-start/)
+  * (Optional) All platforms: `npm i -g gulp-cli` to build with `gulp`
 
-## Getting Started
+## Quick Start
 
 1. Fork and clone repository or download the ZIP file
 3. From the terminal inside the project folder, run `yarn`
-4. Run `gulp` to build and watch for changes
+4. Run `npm run build` (or `gulp` if you have `gulp-cli` installed globally) to build and watch for changes
     * Launches web server with BrowserSync at http://localhost:3000
 
-## Features
+## Detailed Features
 
 ### HTML
 
@@ -39,20 +44,24 @@ These starter files can be used to generate a prototype or flat-file website. Th
 
 ### CSS
 
-* [Sass](https://www.npmjs.com/package/gulp-sass) for writing CSS
-  *  Processes through [Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) (last 2 browser versions)
+* [Sass](https://sass-lang.com) for writing CSS
+  * Uses the official [Dart Sass](https://sass-lang.com/dart-sass) transcription engine
+  * Processes through [PostCSS](https://github.com/postcss/gulp-postcss) with the [Autoprefixer](https://github.com/postcss/autoprefixer) and [CSSNano](https://github.com/cssnano/cssnano) extensions
+    * Uses the [Browserslist](https://github.com/browserslist/browserslist) config in `package.json` for Autoprefixer (uses `default` and `not IE 11 `) 
   * Includes [normalize.scss](https://github.com/JohnAlbin/normalize-scss) library
   * Includes [modularscale-sass](https://github.com/modularscale/modularscale-sass) library
-  * Includes base styles and common global variables
+  * Includes simple base styles and common global Sass variables
   * Includes [sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) to trace errors to the source Sass files
 
 ### JavaScript
 * Automatically includes and concatenates using [`gulp-include`](https://www.npmjs.com/package/gulp-include)
-    * jQuery included by default
-    * IE Object Fit polyfill included
-    * Console log error prevention script included
+  * jQuery included by default
+  * IE Object Fit polyfill included
+  * Uses `gulp-include` directives to bundle all scripts into one (see below)
+  * Console log error prevention script included
+  * Includes [sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) to trace errors to the source JS files
 
-**JavaScript files are included using `//=require` or `//=include` directives within the script file:**
+**JavaScript files can be included into other files using `//=require` or `//=include` directives within the script file:**
 
 ```JavaScript
 //=require plugins/prevent-console-errors.js
@@ -60,17 +69,17 @@ These starter files can be used to generate a prototype or flat-file website. Th
 ```
 
 * Compresses JS files with [Uglify](https://www.npmjs.com/package/gulp-uglify)
-* No linter—add your own if needed
 * [Sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) is available but not configured for JavaScript
+* No linter; add your own if needed
 
 ### Images
-* Images placed in `./src/assets/images/` are optimized by default with [imagemin](https://github.com/sindresorhus/gulp-imagemin)
+* Images placed in `./src/assets/images/` are optimized by default with [gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin)
   * Place directly in `./dist/assets/images/` if optimization is not needed or undesired
 
 
 ## Templating
 
-The best way to template with [Pug](https://pugjs.org/language/attributes.html), a HAML-like template language, is to extend from a base template. Base templates or partials should be prefixed with an underscore `_` to prevent them from compiling into their own standalone templates. For example:
+The best way to template with [Pug](https://pugjs.org/language/attributes.html), a HAML-like template language, is to extend from a base template. Base templates or partials may be prefixed with an underscore `_` to prevent them from compiling into their own standalone templates. For example:
 
 **Base Template (Simplified): `_base.pug`**
 
@@ -112,7 +121,7 @@ block content
 </html>
 ```
 
-You can also include partials with a simple include line:
+You can also include partials with like this:
 
 ```pug
 header
@@ -141,11 +150,11 @@ By default, the following setup is used:
     * Builds to `./dist/`
 * CSS/SASS
     * Write SCSS or SASS in `./src/assets/sass/`
-      * `main.scss` - Import all partials in here
+      * `main.scss` - Import all sass partials in here
       * `base/` - Base styles
     * Name partials with a leading underscore `_`
     * Concatenates to `./dist/assets/css/main.css`
-    * **Note:** Use `yarn add <module> --dev` to maintain SASS libraries and link to them directly
+    * **Note:** Use `yarn add <module> --dev` to maintain Sass libraries and link to them directly
       * Example: `@import '../../../node_modules/modularscale-sass/stylesheets/modularscale';`
 * JS
     * User script file in `./src/assets/js/scripts.js` uses gulp-include directives to set bundle order of additional scripts

@@ -2,6 +2,8 @@
 
 import gulp from 'gulp'
 import postcss from 'gulp-postcss'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
 import cache from 'gulp-cache'
 import del from 'del'
 import imagemin from 'gulp-imagemin'
@@ -9,7 +11,7 @@ import include from 'gulp-include'
 import pug from 'gulp-pug'
 //import rename from 'gulp-rename'
 import gulpSass from 'gulp-sass'
-import nodeSass from 'node-sass'
+import dartSass from 'sass'
 import size from 'gulp-size'
 import sourcemaps from 'gulp-sourcemaps'
 //import order from 'gulp-order'
@@ -17,7 +19,7 @@ import uglify from 'gulp-uglify'
 import browserSync from 'browser-sync'
 import { paths } from './gulp-config.js'
 
-const sass = gulpSass(nodeSass)
+const sass = gulpSass(dartSass)
 const sync = browserSync.create();
 
 // Initiations
@@ -42,10 +44,14 @@ function scripts() {
  * Process SASS styles.
  */
 function styles() {
+  let processors = [
+    autoprefixer,
+    cssnano
+  ];
 	return gulp.src(`${paths.src}/${paths.assets}/sass/**/*.+(scss|sass)`)
 		.pipe(sourcemaps.init({loadMaps: true}))
-			.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))        
-			.pipe(postcss())
+			.pipe(sass().on('error', sass.logError))        
+			.pipe(postcss(processors))
 		.pipe(sourcemaps.write(`.`))
 		.pipe(gulp.dest(`${paths.out}/${paths.assets}/css`))
 }
