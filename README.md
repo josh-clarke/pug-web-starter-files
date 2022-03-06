@@ -5,14 +5,6 @@
 
 These starter files can be used to quickly develop a prototype or flat-file website. The [Pug](https://pugjs.org) template language is used for the HTML due to its terse structure and integration of JavaScript, and [Sass](https://sass-lang.com) is used for its flexibility and extended capabilities.
 
-## Contents
-* [Highlights](#highlights)
-* [Requirements](#requirements)
-* [Quick Start](#quick-start)
-* [Detailed Features](#detailed-features)
-* [Default Setup](#default-setup)
-* [Miscellaneous](#miscellaneous)
-
 ## Highlights
 * **[Pug](https://pugjs.org/) template language (formerly Jade) with a nice terse syntax**
 * **[Sass](https://sass-lang.com) for writing quick CSS**
