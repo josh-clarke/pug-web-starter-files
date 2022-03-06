@@ -1,25 +1,24 @@
 'use strict'
 
 import gulp from 'gulp'
-import autoprefixer from 'gulp-autoprefixer'
+import postcss from 'gulp-postcss'
 import cache from 'gulp-cache'
 import del from 'del'
 import imagemin from 'gulp-imagemin'
 import include from 'gulp-include'
 import pug from 'gulp-pug'
-import rename from 'gulp-rename'
+//import rename from 'gulp-rename'
 import gulpSass from 'gulp-sass'
 import nodeSass from 'node-sass'
 import size from 'gulp-size'
 import sourcemaps from 'gulp-sourcemaps'
-import order from 'gulp-order'
+//import order from 'gulp-order'
 import uglify from 'gulp-uglify'
-import util from 'gulp-util'
 import browserSync from 'browser-sync'
 import { paths } from './gulp-config.js'
 
-const sync = browserSync.create();
 const sass = gulpSass(nodeSass)
+const sync = browserSync.create();
 
 // Initiations
 gulp.task('default', gulp.series(clean, gulp.parallel(scripts, styles, images, templates), gulp.parallel(serve, watch)))
@@ -35,7 +34,6 @@ function scripts() {
         // Add transformation tasks to the pipeline here.
         .pipe(include())
         .pipe(uglify())
-          .on('error', util.log)
     .pipe(sourcemaps.write(`.`))
     .pipe(gulp.dest(`${paths.out}/${paths.assets}/js`))
 }
@@ -46,15 +44,10 @@ function scripts() {
 function styles() {
 	return gulp.src(`${paths.src}/${paths.assets}/sass/**/*.+(scss|sass)`)
 		.pipe(sourcemaps.init({loadMaps: true}))
-			.pipe(sass({outputStyle: 'compressed'}))
-				.on('error',util.log)
-			.pipe(autoprefixer({
-				cascade: false
-			}))
-				.on('error', util.log)
+			.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))        
+			.pipe(postcss())
 		.pipe(sourcemaps.write(`.`))
 		.pipe(gulp.dest(`${paths.out}/${paths.assets}/css`))
-		.pipe(sync.stream())
 }
 
 /**
@@ -83,9 +76,18 @@ function templates() {
 }
 
 /**
+ * Clean built markup files
+ */
+function clean() {
+	return del([
+		`${paths.out}/*.html`
+	])
+}
+
+/**
  * Start BrowserSync
  */
-function serve() {
+ function serve() {
 	sync.init({
     server: {
         baseDir: `./${paths.out}`
@@ -98,18 +100,9 @@ function serve() {
 }
 
 /**
- * Clean Markup
- */
-function clean() {
-	return del([
-		`${paths.out}/*.html`
-	])
-}
-
-/**
  * Watch for changes to source files
  */
-function watch() {
+ function watch() {
 	gulp.watch(`${paths.src}/${paths.assets}/sass/**/*.+(scss|sass)`, styles)
   gulp.watch(`${paths.src}/${paths.assets}/js/**/*.js`, scripts)
 	gulp.watch(`${paths.src}/${paths.assets}/images/**/*.(png|jpg|jpeg|gif)`, images)
