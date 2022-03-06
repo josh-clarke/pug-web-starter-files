@@ -3,19 +3,24 @@
 
 ![Open Issues](https://img.shields.io/github/issues/josh-clarke/pug-web-starter-files.svg) ![Project Forks](https://img.shields.io/github/forks/josh-clarke/pug-web-starter-files.svg) ![GitHub Stars](https://img.shields.io/github/stars/josh-clarke/pug-web-starter-files.svg) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-These starter files can be used to quickly develop a prototype or flat-file website. The [Pug](https://pugjs.org) template language is used for the HTML due to its terse structure and integration of JavaScript, and Sass is used for its flexibility and [Sass](https://sass-lang.com) capability.
+These starter files can be used to quickly develop a prototype or flat-file website. The [Pug](https://pugjs.org) template language is used for the HTML due to its terse structure and integration of JavaScript, and [Sass](https://sass-lang.com) is used for its flexibility and extended capabilities.
 
+## TOC
+* [Highlights](#highlights)
+* [Requirements](#requirements)
+* [Quick Start](#quick-start)
+* [Detailed Features](#detailed-features)
+* [Default Setup](#default-setup)
+* [Miscellaneous](#miscellaneous)
 
 ## Highlights
 * **[Pug](https://pugjs.org/) template language (formerly Jade) with a nice terse syntax**
 * **[Sass](https://sass-lang.com) for writing quick CSS**
-* **[jQuery](https://jquery.org) incldued**
+* **[jQuery](https://jquery.com) 3.6 included**
 * **[PostCSS](https://github.com/postcss/gulp-postcss) with the [Autoprefixer](https://github.com/postcss/autoprefixer) and [CSSNano](https://github.com/cssnano/cssnano) extensions**
-* **Simple building with Gulp 4 with a Babel gulpfile for ES6 syntax**
-  * **Separate config file for paths `gulp-config.js`**
-* **Uses Yarn**
-* **Relies on local `node_modules` instead of globals (except Yarn) for version management**
-  * Use with an [`npm` script](https://docs.npmjs.com/misc/scripts) or just [add the local binaries to your PATH](https://github.com/zeke/add-local-binaries-to-path).
+* **[Gulp 4](https://gulpjs.com) with a Babel gulpfile for ES6 syntax**
+* **Uses [Yarn](https://yarnpkg.org) for Node package management**
+* **Relies on local `node_modules` instead of globals (except Yarn)**
 
 ## Requirements:
 
@@ -25,14 +30,15 @@ These starter files can be used to quickly develop a prototype or flat-file webs
   * Windows: [Get Installer](https://yarnpkg.com/latest.msi)
   * Linux: [Instructions](https://yarnpkg.com/en/docs/install#linux-tab)
 * [Gulp 4](https://gulpjs.com/docs/en/getting-started/quick-start/)
-  * (Optional) All platforms: `npm i -g gulp-cli` to build with `gulp`
+  * (Optional) All platforms: `yarn global add gulp-cli` to build with `gulp`
 
 ## Quick Start
 
-1. Fork and clone repository or download the ZIP file
+1. Fork and/or clone the repository or [download the ZIP file](https://github.com/josh-clarke/pug-web-starter-files/archive/refs/heads/master.zip)
+  *  `git clone https://github.com/josh-clarke/pug-web-starter-files`
 3. From the terminal inside the project folder, run `yarn`
-4. Run `npm run build` (or `gulp` if you have `gulp-cli` installed globally) to build and watch for changes
-    * Launches web server with BrowserSync at http://localhost:3000
+4. Run `yarn build` (or `gulp` if you have `gulp-cli` installed globally) to build and watch for changes
+  * Launches web server with Browsersync at http://localhost:3000
 
 ## Detailed Features
 
@@ -130,16 +136,16 @@ header
 
 _For more information, check out the [Pug templating documentation](https://pugjs.orig)._
 
-# Default Setup
+## Default Setup
 
 By default, the following setup is used:
 
 * Working and Production directories (change in `gulp-config.js`)
     * `src` - Working directory
-    * `dist` - Production directory
+    * `dist` - Production directory (appears after first build)
         * This directory and its subfolders will not be created until the first `gulp` build command
     * `assets` - Assets directory for images, CSS, scripts
-    * `templates` - Templates directory for Nunjucks files
+    * `templates` - Templates directory for Pug files
 * Gulp
     * `gulp` command for default build with BrowserSync preview, also starts watching files
       * Launches web server with BrowserSync at http://localhost:3000
@@ -148,8 +154,8 @@ By default, the following setup is used:
     * Build templates in `./src/templates/` using either the `.pug`, or `.jade` extension
     * Name partials and base extends with a leading underscore `_`
     * Builds to `./dist/`
-* CSS/SASS
-    * Write SCSS or SASS in `./src/assets/sass/`
+* CSS/Sass
+    * Write Sass in `./src/assets/sass/`
       * `main.scss` - Import all sass partials in here
       * `base/` - Base styles
     * Name partials with a leading underscore `_`
@@ -166,7 +172,7 @@ By default, the following setup is used:
     * Runs imagemin default optimization (change in `gulpfile.babel.js`)
     * Outputs to `./dist/assets/images/`
 
-## Working File Layout
+### Working File Layout
 
 ```
 ./
@@ -197,7 +203,9 @@ By default, the following setup is used:
         └ index.pug     # index.html, extends _base.pug
 ```
 
-## Saving New Components
+## Miscellaneous
+
+### Saving New Components
 
 Use the following commands to add modules or libraries to `package.json`. When you clone the repo to a new directory or machine, just run the `yarn add` command. Yarn uses the same repositories as `npm`, and locks the version.
 
@@ -206,7 +214,7 @@ Use the following commands to add modules or libraries to `package.json`. When y
 * If you want to shift all packages to their latest versions, you can do `yarn upgrade`. **Do not do this unless you know what you are doing, as it could break your project.**
 
 
-## Notes
+### End Notes
 
 **Based on:**
 
