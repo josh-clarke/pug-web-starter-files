@@ -27,16 +27,16 @@ These starter files can be used to quickly develop a prototype or flat-file webs
 ## Quick Start
 
 1. Fork and/or clone the repository or [download the ZIP file](https://github.com/josh-clarke/pug-web-starter-files/archive/refs/heads/master.zip)
-  *  `git clone https://github.com/josh-clarke/pug-web-starter-files`
-3. From the terminal inside the project folder, run `yarn`
+    *  `git clone https://github.com/josh-clarke/pug-web-starter-files`
+3. From the terminal inside the project folder, run `yarn` to install node modules
 4. Run `yarn build` (or `gulp` if you have `gulp-cli` installed globally) to build and watch for changes
-  * Launches web server with Browsersync at http://localhost:3000
+    * Launches web server with Browsersync at http://localhost:3000
 
 ## Detailed Features
 
 ### HTML
 
-* [Pug](https://pugjs.org/) template language (formerly Jade) with a nice terse syntax
+* [Pug](https://pugjs.org/) template language (formerly Jade)
   * Extend/Include templates, Scripting, Mixins, Interpolation and [more](https://pugjs.org/)
 * Starter template based on [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
 
@@ -44,20 +44,20 @@ These starter files can be used to quickly develop a prototype or flat-file webs
 
 * [Sass](https://sass-lang.com) for writing CSS
   * Uses the official [Dart Sass](https://sass-lang.com/dart-sass) transcription engine
-  * Processes through [PostCSS](https://github.com/postcss/gulp-postcss) with the [Autoprefixer](https://github.com/postcss/autoprefixer) and [CSSNano](https://github.com/cssnano/cssnano) extensions
-    * Uses the [Browserslist](https://github.com/browserslist/browserslist) config in `package.json` for Autoprefixer (uses `default` and `not IE 11 `) 
-  * Includes [normalize.scss](https://github.com/JohnAlbin/normalize-scss) library
-  * Includes [modularscale-sass](https://github.com/modularscale/modularscale-sass) library
-  * Includes simple base styles and common global Sass variables
-  * Includes [sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) to trace errors to the source Sass files
+* Processes through [PostCSS](https://github.com/postcss/gulp-postcss) with the [Autoprefixer](https://github.com/postcss/autoprefixer) and [CSSNano](https://github.com/cssnano/cssnano) extensions
+  * Uses the [Browserslist](https://github.com/browserslist/browserslist) config in `package.json` for Autoprefixer (uses `default` and `not IE 11`) 
+* Includes [normalize.scss](https://github.com/JohnAlbin/normalize-scss) library
+* Includes [modularscale-sass](https://github.com/modularscale/modularscale-sass) library
+* Includes simple base styles and common global Sass variables
+* Includes [sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) to trace errors to the source Sass files
 
 ### JavaScript
 * Automatically includes and concatenates using [`gulp-include`](https://www.npmjs.com/package/gulp-include)
-  * jQuery included by default
-  * IE Object Fit polyfill included
-  * Uses `gulp-include` directives to bundle all scripts into one (see below)
-  * Console log error prevention script included
-  * Includes [sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) to trace errors to the source JS files
+* jQuery included by default
+* IE Object Fit polyfill included
+* Uses `gulp-include` directives to bundle all scripts into one (see below)
+* Console log error prevention script included
+* Includes [sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) to trace errors to the source JS files
 
 **JavaScript files can be included into other files using `//=require` or `//=include` directives within the script file:**
 
@@ -139,9 +139,8 @@ By default, the following setup is used:
     * `assets` - Assets directory for images, CSS, scripts
     * `templates` - Templates directory for Pug files
 * Gulp
-    * `gulp` command for default build with BrowserSync preview, also starts watching files
+    * `yarn build` or [optional](#quick-start) `gulp` command for default build with BrowserSync preview and watch files for changes
       * Launches web server with BrowserSync at http://localhost:3000
-    * `gulp watch` command to watch files for changes
 * Pug Templates
     * Build templates in `./src/templates/` using either the `.pug`, or `.jade` extension
     * Name partials and base extends with a leading underscore `_`
@@ -168,7 +167,7 @@ By default, the following setup is used:
 
 ```
 ./
- └ dist/                # distribution folder
+ └ dist/                # distribution folder (appears after first build)
     └ assets
       └ css/      
         └ main.css      # main CSS file
@@ -199,11 +198,12 @@ By default, the following setup is used:
 
 ### Saving New Components
 
-Use the following commands to add modules or libraries to `package.json`. When you clone the repo to a new directory or machine, just run the `yarn add` command. Yarn uses the same repositories as `npm`, and locks the version.
+Use the following commands to add modules or libraries to `package.json`. When you clone the repo to a new directory or machine, just run the `yarn add` command.
 
-* New project modules/libraries can be added with `yarn add <package-name>`
-* New build modules/libraries (such as gulp plugins) can be added with `yarn add <package-name> --dev`
-* If you want to shift all packages to their latest versions, you can do `yarn upgrade`. **Do not do this unless you know what you are doing, as it could break your project.**
+* New **project** modules/libraries can be added with `yarn add <package-name>`
+* New **build** modules/libraries (such as gulp plugins) can be added with `yarn add <package-name> --dev`
+
+If you want to shift all packages to their latest versions, you can do `yarn upgrade`. **Do not do this unless you know what you are doing, as it could break your project.**
 
 
 ### End Notes
